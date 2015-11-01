@@ -5,11 +5,12 @@ from models import *
 
 
 def home(request):
-    mine = Card.objects.filter(session_id=request.session.session_key)
-    if request.method == 'POST':
+    mine = Card.objects.filter()
+    if False and request.method == 'POST':
         text = request.POST.get('text').strip()
         if Card.objects.filter(text=text).count() == 0:
             Card.objects.create(text=text, session_id=request.session.session_key)
+        return redirect("/")
     return render(request, "home.html", locals())
 
 
@@ -24,9 +25,12 @@ def reset(request):
 
 def delete(request, id):
     card = get_object_or_404(Card, id=id)
-    if request.user.is_superuser or card.session.id == request.session.session_key:
-        card.delete()
-        return redirect('/')
+    try:
+        if request.user.is_superuser or card.session.id == request.session.session_key:
+            card.delete()
+            return redirect('/')
+    except:
+        pass
     raise Http404
 
 
