@@ -33,7 +33,7 @@ def delete(request, id):
 def cards(request):
     cards = list( Card.objects.exclude(used__isnull=True) )
     
-    if not cards or arrow.get(cards[-1].used) < arrow.now().replace(seconds=-30) or request.GET.get('force', '').lower() in ('yes', 'true', 'on'):
+    if not cards or arrow.get(cards[-1].used) < arrow.now().replace(minutes=-5) or request.GET.get('force', '').lower() in ('yes', 'true', 'on'):
         try:
             new_card = Card.objects.filter(used__isnull=True).order_by('?')[0]
         except IndexError:
