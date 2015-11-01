@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Costume" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="LOADING" textAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-ef-x78">
+                                <rect key="frame" x="20" y="20" width="984" height="728"/>
+                                <animations/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="52"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSq-jd-gxY">
+                                <rect key="frame" x="966" y="718" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="next"/>
+                                <connections>
+                                    <action selector="onTouchNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DAR-he-nIo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzD-cZ-cOK">
+                                <rect key="frame" x="20" y="718" width="31" height="30"/>
+                                <animations/>
+                                <state key="normal" title="prev"/>
+                                <connections>
+                                    <action selector="onTouchPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sbF-Ex-0v2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yzD-cZ-cOK" firstAttribute="bottom" secondItem="gRZ-ef-x78" secondAttribute="bottom" id="AiR-kw-41q"/>
+                            <constraint firstItem="yzD-cZ-cOK" firstAttribute="leading" secondItem="gRZ-ef-x78" secondAttribute="leading" id="Kxr-qn-ZJi"/>
+                            <constraint firstItem="yzD-cZ-cOK" firstAttribute="baseline" secondItem="wSq-jd-gxY" secondAttribute="baseline" id="M6Z-M0-AND"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wSq-jd-gxY" secondAttribute="trailing" constant="8" id="YEA-10-9UT"/>
+                            <constraint firstItem="gRZ-ef-x78" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aq0-xu-igc"/>
+                            <constraint firstAttribute="bottom" secondItem="gRZ-ef-x78" secondAttribute="bottom" constant="20" symbolic="YES" id="gd2-FJ-m7Z"/>
+                            <constraint firstItem="gRZ-ef-x78" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lt6-4G-F7K"/>
+                            <constraint firstItem="gRZ-ef-x78" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uTw-Xq-vlO"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="_text" destination="gRZ-ef-x78" id="KT4-nY-LqF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="387"/>
+        </scene>
+    </scenes>
+</document>

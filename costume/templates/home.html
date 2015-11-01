@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brant's Costume</title>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+            font-size: 18px;
+            color: #666;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        main {
+            display: block;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        input[type=text] {
+            font-size: 26px;
+            width: 100%;
+            padding: 6px 4px;
+        }
+
+        p {
+            color: #888;
+        }
+
+        .card {
+            margin: 5px 0px;
+        }
+
+        .card .text {
+            display: block;
+        }
+
+        .card .info {
+            font-size: 12px;
+            margin-left: 2px;
+            color: #888;
+        }
+
+        a {
+            color: #F8A522;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            margin: 10px 0px 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Brant's Costume</h1>
+
+        <form action="." method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter a costume..." name="text">
+        </form>
+
+        {% for card in mine %}
+            <div class="card">
+                <div class="text">{{ card.text }}</div>
+                <div class="info">
+                {% if card.used %}
+                    shown on {{ card.used|date:"r" }}
+                {% else %}
+                    <a href="/cards/{{ card.id}}/delete/" class="controls">delete</a>
+                {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <p><em>To see all the costumes, come back tomorrow.</em></p>
+    </main>
+</body>
+</html>
