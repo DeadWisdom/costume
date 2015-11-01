@@ -64,7 +64,7 @@
 
         <form action="." method="post">
             {% csrf_token %}
-            <input type="text" placeholder="Enter a costume..." name="text">
+            <input type="text" placeholder="All bets are placed" name="text" disabled>
         </form>
 
         {% for card in mine %}
@@ -74,13 +74,13 @@
                 {% if card.used %}
                     shown on {{ card.used|date:"r" }}
                 {% else %}
-                    <a href="/cards/{{ card.id}}/delete/" class="controls">delete</a>
+                    {% if request.user.is_superuser %}<a href="/cards/{{ card.id}}/delete/" class="controls">delete</a>{% endif %}
                 {% endif %}
                 </div>
             </div>
         {% endfor %}
 
-        <p><em>To see all the costumes, come back tomorrow.</em></p>
+        <p><em>Thanks all</em></p>
     </main>
 </body>
 </html>

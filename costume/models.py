@@ -7,6 +7,7 @@ class Card(models.Model):
     session = models.ForeignKey(Session, blank=True, null=True)
     used = models.DateTimeField(blank=True, null=True)
     order = models.PositiveIntegerField(blank=True, null=True)
+    #deleted = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.text

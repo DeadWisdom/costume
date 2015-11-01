@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var loadTimer = NSTimer()
     var rollTimer = NSTimer()
 
-    @IBOutlet weak var _text: UITextField!
+    @IBOutlet weak var _text: UILabel!
     
     func loadCards() {
         let endpoint = NSURL(string: "http://brantleyharris.com/cards/")
@@ -63,6 +63,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _text.enabled = false
         
         loadTimer = NSTimer.scheduledTimerWithTimeInterval(self.loadSeconds, target:self, selector: Selector("loadCards"), userInfo: nil, repeats: true)
         loadCards()
