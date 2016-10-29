@@ -12,3 +12,5 @@ class Card(models.Model):
     def __unicode__(self):
         return self.text
 
+    def is_image(self):
+        return self.text.startswith("http")

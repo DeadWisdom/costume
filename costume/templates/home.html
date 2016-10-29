@@ -72,7 +72,7 @@
 
         {% for card in mine %}
             <div class="card">
-                <div class="text">{{ card.text }}</div>
+                <div class="text">{% if card.is_image %}<img src="{{card.text"}} height="32">{% else %}{{ card.text }}{% endif %}</div>
                 <div class="info">
                 {% if card.used %}
                     shown on {{ card.used|date:"r" }}
