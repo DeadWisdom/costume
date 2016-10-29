@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var rollTimer = NSTimer()
 
     @IBOutlet weak var _text: UILabel!
+    @IBOutlet weak var _image: UIImageView!
     
     func loadCards() {
         let endpoint = NSURL(string: "http://brantleyharris.com/cards/")
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
             }
         } catch {
             cards = [
+                "https://i.reddituploads.com/1defe26f5c844f4680e532623d805340?fit=max&h=1536&w=1536&s=1963ddc664f16067c4029c9fb461e477",
                 "Sexy Syrian War",
                 "Sam Waterston's Eyebrows",
                 "Ravenswood Manor"
@@ -54,6 +56,16 @@ class ViewController: UIViewController {
     func selectCard(i: Int) {
         index = i
         self._text.text = self.cards[i]
+        
+        if (self.cards[i].hasPrefix("http")) {
+            let url = NSURL(string:self.cards[i])
+            let data = NSData(contentsOfURL:url!)
+            if data != nil {
+                self._image.image = UIImage(data:data!)
+            }
+        } else {
+            self._image.hidden = true
+        }
     }
     
     func onNewCard() {

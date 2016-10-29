@@ -64,8 +64,11 @@
 
         <form action="." method="post">
             {% csrf_token %}
-            <input type="text" placeholder="All bets are placed" name="text" disabled>
+            <input type="text" placeholder="enter a costume here" name="text">
+            <input type="submit" value="add">
         </form>
+
+        <p><em>My costume is whatever goes in this box.  Add a costume, and it will it will add to the queue.</em></p>
 
         {% for card in mine %}
             <div class="card">
@@ -79,8 +82,6 @@
                 </div>
             </div>
         {% endfor %}
-
-        <p><em>Thanks all</em></p>
     </main>
 </body>
 </html>
