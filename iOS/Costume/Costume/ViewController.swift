@@ -63,8 +63,11 @@ class ViewController: UIViewController {
             if data != nil {
                 self._image.image = UIImage(data:data!)
             }
+            self._image.hidden = false
+            self._text.hidden = true
         } else {
             self._image.hidden = true
+            self._text.hidden = false
         }
     }
     

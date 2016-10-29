@@ -6,7 +6,7 @@ from models import *
 
 def home(request):
     mine = Card.objects.filter()
-    if False and request.method == 'POST':
+    if request.method == 'POST':
         text = request.POST.get('text').strip()
         if Card.objects.filter(text=text).count() == 0:
             Card.objects.create(text=text, session_id=request.session.session_key)
